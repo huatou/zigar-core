@@ -1,6 +1,8 @@
 package com.zigar.zigarcore.log;//package com.huatou.system.log;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.zigar.zigarcore.utils.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -34,80 +36,54 @@ public class LogRecordAspect {
     }
 
     // 定义切点Pointcut
-    @Pointcut("execution(* com.zigar.*.controller.*.*(..))")
+    @Pointcut("execution(* com.zigar.*.rest.*.*(..))")
     public void logRestControllerUrlAndParams() {
     }
 
 
+    /**
+     * 在切面使用around
+     *
+     * @param proceedingJoinPoint
+     * @return
+     * @throws Throwable
+     */
     @Around("logControllerUrlAndParams() || logRestControllerUrlAndParams()")
-    public Object doAround(ProceedingJoinPoint pjp) throws Throwable {
-
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        RequestAttributes ra = RequestContextHolder.getRequestAttributes();
-        ServletRequestAttributes sra = (ServletRequestAttributes) ra;
-        HttpServletRequest request = sra.getRequest();
-
-        String url = request.getRequestURL().toString();
-        String method = request.getMethod();
-        String contentType = request.getContentType();
-        String uri = request.getRequestURI();
-        String queryString = request.getQueryString();
-        Object[] args = pjp.getArgs();
+    public Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+        ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) requestAttributes;
+        HttpServletRequest request = servletRequestAttributes.getRequest();
+        String requestUrl = request.getRequestURL().toString();
+        String requestMethod = request.getMethod();
+        Object[] proceedingJoinPointArgs = proceedingJoinPoint.getArgs();
         Map<Object, Object> params = new HashMap<>();
         //获取请求参数集合并进行遍历拼接
-        for (int i = 0; i < args.length; i++) {
-            Object o = args[i];
-            if (o instanceof HttpServletRequest) {
-                HttpServletRequest httpServletRequest = (HttpServletRequest) o;
+        for (int i = 0; i < proceedingJoinPointArgs.length; i++) {
+            Object proceedingJoinPointArg = proceedingJoinPointArgs[i];
+            if (proceedingJoinPointArg instanceof HttpServletRequest) {
+                HttpServletRequest httpServletRequest = (HttpServletRequest) proceedingJoinPointArg;
                 Map<String, String[]> parameterMap = httpServletRequest.getParameterMap();
                 Map<String, String> parameterStrMap = new HashMap<>();
                 parameterMap.forEach((a, b) -> {
                     parameterStrMap.put(a, b[0]);
                 });
                 params.putAll(parameterStrMap);
-            } else if (o instanceof HttpServletResponse) {
+            } else if (proceedingJoinPointArg instanceof HttpServletResponse) {
                 continue;
             } else {
-                Object queryEntity = o;
-                params.putAll(getKeyAndValue(queryEntity));
+                params.putAll(ObjectUtils.objectToHashMap(proceedingJoinPointArg));
             }
         }
         logger.info("请求开始================================");
-        logger.info("请求开始===地址:" + url);
-        logger.info("请求开始===类型:" + method);
+        logger.info("请求开始===接口:" + requestUrl);
+        logger.info("请求开始===方法:" + requestMethod);
         logger.info("请求开始===参数:" + params);
 
         // result的值就是被拦截方法的返回值
-        Object result = null;
-        result = pjp.proceed();
-
+        Object result = proceedingJoinPoint.proceed();
         logger.info("请求结束===返回值:" + result);
         return result;
     }
 
-    public static Map<String, Object> getKeyAndValue(Object obj) {
-        Map<String, Object> map = new HashMap<>();
-        // 得到类对象
-        Class userCla = (Class) obj.getClass();
-        /* 得到类中的所有属性集合 */
-        Field[] fs = userCla.getDeclaredFields();
-        for (int i = 0; i < fs.length; i++) {
-            Field f = fs[i];
-            f.setAccessible(true); // 设置些属性是可以访问的
-            try {
-                // 得到此属性的值
-                Object val = f.get(obj);
-                if (val != null) {
-                    map.put(f.getName(), val);// 设置键值
-                }
-            } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
 
-        }
-        return map;
-    }
 }
