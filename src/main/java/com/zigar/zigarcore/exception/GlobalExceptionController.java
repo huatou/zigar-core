@@ -42,14 +42,16 @@ public class GlobalExceptionController {
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public Object ErrorHandler(HttpServletRequest req, Exception e) throws Exception {
-        String errMsg = e.getMessage();
+        String errMsg = "系统内部异常";
         e.printStackTrace();
         if (StringUtils.equals(profileActive, PROFILES_ACTIVE_PROD)) {
-            errMsg = "系统内部异常";
             return Results.error(errMsg);
         }
         if (e instanceof BusinessLogicException) {
-            return Results.error(errMsg);
+            return Results.error(e.getMessage());
+        }
+        if (e instanceof IllegalArgumentException) {
+            return Results.error(e.getMessage());
         }
         if (e instanceof MethodArgumentNotValidException) {
             MethodArgumentNotValidException methodArgumentNotValidException = (MethodArgumentNotValidException) e;
@@ -73,8 +75,7 @@ public class GlobalExceptionController {
             errMsg = StringUtils.append("违反数据库唯一约束：" + duplicateStr, "已存在", e.getMessage());
             return Results.error(errMsg);
         }
-        errMsg = "系统内部异常";
-        errMsg = StringUtils.append(errMsg, "【", e.getClass().toString(), "】：", errMsg);
+        errMsg = StringUtils.append(errMsg, "【", e.getClass().toString(), "】：", e.getMessage());
         return Results.error(errMsg);
     }
 
