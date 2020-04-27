@@ -23,4 +23,13 @@ public class DateUtils {
         Date date = Date.from(zdt.toInstant());
         return date;
     }
+
+
+    /**
+     * 获取当前时间
+     */
+    public static LocalDateTime now() {
+        return LocalDateTime.now();
+    }
+
 }

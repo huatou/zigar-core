@@ -17,6 +17,7 @@ import java.util.Map;
 
 /**
  * 自定义service基类
+ *
  * @param <M>
  * @param <T>
  */
@@ -29,6 +30,7 @@ public class ZServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, T> 
     }
 
     /**
+     * 1、判断该id对应的记录是否存在
      * 判断数据的唯一性
      *
      * @param t
@@ -63,6 +65,13 @@ public class ZServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, T> 
         }
         Object finalId = id;
         String finalIdName = idName;
+        if (finalId != null) {
+            QueryWrapper<T> queryWrapperById = Wrappers.<T>query().eq(finalIdName, id);
+            T one = getOne(queryWrapperById);
+            if (one == null) {
+                throw new BusinessLogicException("修改的记录不存在");
+            }
+        }
         uniqueParamMap.forEach((field, param) -> {
             TableField tableFieldAnnotation = field.getAnnotation(TableField.class);
             QueryWrapper<T> queryWrapper = Wrappers.<T>query().eq(tableFieldAnnotation.value(), param);
