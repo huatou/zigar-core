@@ -112,6 +112,13 @@
             <version>${mybatis-plus.version}</version>
         </dependency>
 
+        <!-- FastJson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>

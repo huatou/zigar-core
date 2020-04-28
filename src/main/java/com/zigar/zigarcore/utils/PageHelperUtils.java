@@ -60,8 +60,10 @@ public class PageHelperUtils {
             if (pageSize > MAX_PAGE_SIZE) {
                 return Results.error("pageSize必须小于100");
             }
-            return Results.succeed(new Page(page, pageSize));
-
+            Page pageModel = new Page();
+            pageModel.setPages(page);
+            pageModel.setSize(pageSize);
+            return Results.succeed(pageModel);
         }
         return Results.error();
     }

@@ -29,6 +29,10 @@ public class ZServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, T> 
         return super.saveOrUpdate(entity);
     }
 
+    public void dataFilter(T t){
+
+    }
+
     /**
      * 1、判断该id对应的记录是否存在
      * 判断数据的唯一性

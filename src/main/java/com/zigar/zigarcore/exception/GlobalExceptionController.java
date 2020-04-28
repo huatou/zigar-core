@@ -1,5 +1,6 @@
 package com.zigar.zigarcore.exception;
 
+import com.alibaba.fastjson.JSON;
 import com.zigar.zigarcore.model.Results;
 import com.zigar.zigarcore.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -34,14 +36,15 @@ public class GlobalExceptionController {
     /**
      * 捕获自定义异常类型BusinessException，和@validated注释的验证不通过的方法
      *
-     * @param req
+     * @param httpServletRequest
+     * @param httpServletResponse
      * @param e
      * @return
      * @throws Exception
      */
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public Object ErrorHandler(HttpServletRequest req, Exception e) throws Exception {
+    public Object ErrorHandler(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Exception e) throws Exception {
         String errMsg = "系统内部异常";
         e.printStackTrace();
         if (StringUtils.equals(profileActive, PROFILES_ACTIVE_PROD)) {
@@ -74,6 +77,10 @@ public class GlobalExceptionController {
             String duplicateStr = StringUtils.substring(errMsg, startIndex, endIndex);
             errMsg = StringUtils.append("违反数据库唯一约束：" + duplicateStr, "已存在", e.getMessage());
             return Results.error(errMsg);
+        }
+        if (e instanceof LoginExpiredException) {
+            httpServletResponse.setStatus(403);
+            return Results.error(e.getMessage());
         }
         errMsg = StringUtils.append(errMsg, "【", e.getClass().toString(), "】：", e.getMessage());
         return Results.error(errMsg);
