@@ -20,7 +20,7 @@ public class SecurityProperties {
 
     //不需要登录就可访问的路径
 //    private String[] permitAllUrls = {"/test", "/zigar/login", "/zigar/logout"};
-    private String[] permitAllUrls = {"/*"};
+    private String[] permitAllUrls = {"/test"};
 
     private String loginProcessingUrl = "/zigar/login";
 
