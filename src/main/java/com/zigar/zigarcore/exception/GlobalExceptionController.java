@@ -44,7 +44,7 @@ public class GlobalExceptionController {
      */
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public Object ErrorHandler(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Exception e) throws Exception {
+        public Object ErrorHandler(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Exception e) throws Exception {
         String errMsg = "系统内部异常";
         e.printStackTrace();
         if (StringUtils.equals(profileActive, PROFILES_ACTIVE_PROD)) {

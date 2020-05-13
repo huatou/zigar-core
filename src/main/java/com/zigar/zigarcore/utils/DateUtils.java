@@ -1,5 +1,7 @@
 package com.zigar.zigarcore.utils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -12,24 +14,60 @@ import java.util.Date;
  */
 
 public class DateUtils {
-    /**
-     * LocalDateTime转换为Date
-     *
-     * @param localDateTime
-     */
-    public static Date localDateTime2Date(LocalDateTime localDateTime) {
-        ZoneId zoneId = ZoneId.systemDefault();
-        ZonedDateTime zdt = localDateTime.atZone(zoneId);//Combines this date-time with a time-zone to create a  ZonedDateTime.
-        Date date = Date.from(zdt.toInstant());
-        return date;
+
+    public static final String dateTimeFormat = "yyyy-MM-dd HH:mm:ss";
+
+    public static final String dateFormat = "yyyy-MM-dd";
+
+    public static Date now() {
+        return new Date(System.currentTimeMillis());
     }
 
+    public static String now(String format) {
+        return format(now(), format);
+    }
 
-    /**
-     * 获取当前时间
-     */
-    public static LocalDateTime now() {
-        return LocalDateTime.now();
+    public static String formatNowDate() {
+        return format(now(), dateFormat);
+    }
+
+    public static String formatDate(Date date) {
+        return format(date, dateFormat);
+    }
+
+    public static String formatNowTime() {
+        return format(now(), dateTimeFormat);
+    }
+
+    public static String format(Date date) {
+        return format(date, dateTimeFormat);
+    }
+
+    public static String format(Date date, String format) {
+        SimpleDateFormat df = new SimpleDateFormat(format);
+        return df.format(date);
+    }
+
+    public static Date formatDate(String date) {
+        return format(date, dateFormat);
+    }
+
+    public static Date format(String date) {
+        Date dt = format(date, dateTimeFormat);
+        if (dt == null) {
+            return formatDate(date);
+        } else {
+            return dt;
+        }
+    }
+
+    public static Date format(String date, String format) {
+        SimpleDateFormat df = new SimpleDateFormat(format);
+        try {
+            return df.parse(date);
+        } catch (ParseException e) {
+            return null;
+        }
     }
 
 }
