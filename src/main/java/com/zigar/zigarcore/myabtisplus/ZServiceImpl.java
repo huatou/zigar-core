@@ -5,13 +5,16 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zigar.zigarcore.exception.BusinessLogicException;
+import com.zigar.zigarcore.utils.Assert;
 import com.zigar.zigarcore.utils.StringUtils;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.lang.reflect.Field;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,12 +28,41 @@ public class ZServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, T> 
 
     @Override
     public boolean saveOrUpdate(T entity) {
+        Assert.notNull(entity, "传入的实体" + entity.getClass().getName() + "必须不为空");
         unique(entity);
         return super.saveOrUpdate(entity);
     }
 
-    public void dataFilter(T t){
+    @Override
+    public boolean save(T entity) {
+        Assert.notNull(entity, "传入的实体" + entity.getClass().getName() + "必须不为空");
+        unique(entity);
+        return super.save(entity);
+    }
 
+    @Override
+    public boolean saveBatch(Collection<T> entityList) {
+        if (CollectionUtils.isEmpty(entityList)) {
+            return false;
+        }
+        unique(entityList);
+        return super.saveBatch(entityList);
+    }
+
+    @Override
+    public boolean updateById(T entity) {
+        Assert.notNull(entity, "传入的实体" + entity.getClass().getName() + "必须不为空");
+        unique(entity);
+        return super.updateById(entity);
+    }
+
+    @Override
+    public boolean updateBatchById(Collection<T> entityList) {
+        if (CollectionUtils.isEmpty(entityList)) {
+            return false;
+        }
+        unique(entityList);
+        return super.updateBatchById(entityList);
     }
 
     /**
@@ -88,6 +120,14 @@ public class ZServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, T> 
                 throw new BusinessLogicException(StringUtils.append(apiModelAnnotation.value(), "：", param + " 已存在"));
             }
         });
+    }
+
+    private void unique(Collection<T> tList) {
+        if (CollectionUtils.isNotEmpty(tList)) {
+            tList.forEach(t -> {
+                unique(t);
+            });
+        }
     }
 
 }

@@ -20,7 +20,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     public void insertFill(MetaObject metaObject) {
         this.strictInsertFill(metaObject, "createTime", Date.class, DateUtils.now());
         this.strictInsertFill(metaObject, "loginTime", Date.class, DateUtils.now());
-        this.strictInsertFill(metaObject, "isEnabled", Boolean.class, true);
+        this.strictInsertFill(metaObject, "isEnabled", Integer.class, 1);
     }
 
     @Override
