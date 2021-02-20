@@ -11,9 +11,12 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableConfigurationProperties({
-        SecurityProperties.class,
+        FileProperties.class,
         JwtProperties.class,
+        SecurityProperties.class,
+        SystemProperties.class,
         WebProperties.class,
-        FileProperties.class})
+        WeChatProperties.class,
+})
 public class PropertiesConfiguration {
 }

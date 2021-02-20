@@ -1,6 +1,9 @@
 package com.zigar.zigarcore.myabtisplus;
 
+import com.baomidou.mybatisplus.core.incrementer.DefaultIdentifierGenerator;
+import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -15,18 +18,19 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MybatisPlusConfiguration {
 
-    @Bean
-    MyMetaObjectHandler myMetaObjectHandler() {
-        return new MyMetaObjectHandler();
-    }
-
     /**
      * mybatis-plus分页插件<br>
      */
     @Bean
+    @ConditionalOnMissingBean
     public PaginationInterceptor paginationInterceptor() {
-        PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
-        return paginationInterceptor;
+        return new PaginationInterceptor();
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public IdentifierGenerator identifierGenerator() {
+        return new DefaultIdentifierGenerator();
     }
 
 }

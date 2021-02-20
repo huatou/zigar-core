@@ -1,7 +1,7 @@
 package com.zigar.zigarcore.ui;
 
 import com.zigar.zigarcore.properties.WebProperties;
-import com.zigar.zigarcore.utils.StringUtils;
+import com.zigar.zigarcore.utils.lang.StringUtils;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;

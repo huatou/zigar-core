@@ -1,14 +1,12 @@
-package com.zigar.zigarcore.log;//package com.huatou.system.log;
+package com.zigar.zigarcore.log;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zigar.zigarcore.utils.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
+import com.zigar.zigarcore.utils.lang.ObjectUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -16,7 +14,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,9 +23,9 @@ import java.util.Map;
 
 @Aspect
 @Component
+@Slf4j
+@EnableAspectJAutoProxy
 public class LogRecordAspect {
-
-    private static final Logger logger = LoggerFactory.getLogger(LogRecordAspect.class);
 
     // 定义切点Pointcut
     @Pointcut("execution(* com.zigar.*.controller.*.*(..))")
@@ -39,7 +36,6 @@ public class LogRecordAspect {
     @Pointcut("execution(* com.zigar.*.rest.*.*(..))")
     public void logRestControllerUrlAndParams() {
     }
-
 
     /**
      * 在切面使用around
@@ -74,14 +70,15 @@ public class LogRecordAspect {
                 params.putAll(ObjectUtils.objectToHashMap(proceedingJoinPointArg));
             }
         }
-        logger.info("请求开始================================");
-        logger.info("请求开始===接口:" + requestUrl);
-        logger.info("请求开始===方法:" + requestMethod);
-        logger.info("请求开始===参数:" + params);
+        log.info("请求开始>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        log.info("请求开始===接口:" + requestUrl);
+        log.info("请求开始===方法:" + requestMethod);
+        log.info("请求开始===参数:" + params);
 
         // result的值就是被拦截方法的返回值
         Object result = proceedingJoinPoint.proceed();
-        logger.info("请求结束===返回值:" + result);
+        log.info("请求结束===返回值:" + result);
+        log.info("请求结束<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         return result;
     }
 

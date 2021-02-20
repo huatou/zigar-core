@@ -1,5 +1,6 @@
 package com.zigar.zigarcore.properties;
 
+import cn.hutool.core.util.ArrayUtil;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -22,8 +23,14 @@ public class SecurityProperties {
 //    private String[] permitAllUrls = {"/test", "/zigar/login", "/zigar/logout"};
     private String[] permitAllUrls = {"/test"};
 
+    //默认不需要登录接口访问的url地址
+    private String[] defaultPermitAllUrls = {"/zigar/user/register"};
+
     private String loginProcessingUrl = "/zigar/login";
 
     private String loginMethod = "POST";
 
+    public String[] getPermitAllUrls() {
+        return ArrayUtil.addAll(permitAllUrls, defaultPermitAllUrls);
+    }
 }

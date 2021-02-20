@@ -51,7 +51,6 @@ public class Results<T> implements Serializable {
         return new Results(true, message);
     }
 
-
     public static <T> Results<T> succeed(T t) {
         return new Results(true, t);
     }

@@ -1,5 +1,7 @@
 package com.zigar.zigarcore.utils;
 
+import com.zigar.zigarcore.utils.web.PageHelperUtils;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,7 +15,8 @@ import org.springframework.context.annotation.Configuration;
 public class UtilsConfiguration {
 
     @Bean
-    PageHelperUtils pageHelperUtils(){
+    @ConditionalOnMissingBean
+    PageHelperUtils pageHelperUtils() {
         return new PageHelperUtils();
     }
 }

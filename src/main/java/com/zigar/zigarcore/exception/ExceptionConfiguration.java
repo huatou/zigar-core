@@ -1,6 +1,8 @@
 package com.zigar.zigarcore.exception;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -14,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
 public class ExceptionConfiguration {
 
     @Bean
+    @ConditionalOnMissingBean
     GlobalExceptionController globalExceptionController() {
         return new GlobalExceptionController();
     }

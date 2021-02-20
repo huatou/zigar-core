@@ -1,8 +1,7 @@
 package com.zigar.zigarcore.exception;
 
-import com.alibaba.fastjson.JSON;
 import com.zigar.zigarcore.model.Results;
-import com.zigar.zigarcore.utils.StringUtils;
+import com.zigar.zigarcore.utils.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.validation.FieldError;
