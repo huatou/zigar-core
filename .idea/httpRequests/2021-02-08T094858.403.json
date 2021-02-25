@@ -1,0 +1,8 @@
+[
+  "com.zigar.zigarcore.model.Results",
+  {
+    "success": false,
+    "message": "此请求需要验证令牌信息",
+    "data": null
+  }
+]

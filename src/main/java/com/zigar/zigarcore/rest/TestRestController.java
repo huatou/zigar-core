@@ -30,7 +30,7 @@ import java.io.*;
 public class TestRestController {
 
     @PassToken
-    @GetMapping("/zigar/test")
+    @GetMapping("/api/zigarcore/test")
     String test(MultipartFile file) {
         return "zigar test";
     }

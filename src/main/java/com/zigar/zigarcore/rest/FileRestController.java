@@ -27,7 +27,7 @@ import java.io.*;
 
 @Api(tags = "文件系统管理")
 @RestController
-@RequestMapping("/zigar/file")
+@RequestMapping("/api/zigarcore/file")
 public class FileRestController {
 
     private final FileService fileService;

@@ -24,7 +24,7 @@ public class SecurityProperties {
     private String[] permitAllUrls = {"/test"};
 
     //默认不需要登录接口访问的url地址
-    private String[] defaultPermitAllUrls = {"/zigar/user/register"};
+    private String[] defaultPermitAllUrls = {"/zigar/user/register","/"};
 
     private String loginProcessingUrl = "/zigar/login";
 

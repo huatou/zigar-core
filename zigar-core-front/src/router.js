@@ -13,50 +13,49 @@ import Welcome from "./views/index/Welcome";
 Vue.use(Router);
 const router = new Router({
     mode: 'history',
-    base: "/view/",
+    base: "/zigarcore",
     routes: [
-        {path: '*', redirect: '/index'},
-        {path: '/', redirect: '/index'},
+        {path: '/zigarcore', redirect: '/zigarcore/index'},
         {
-            path: '/index',
+            path: '/zigarcore/index',
             name: 'index',
             component: Index,
             children: [
-                {path: '/index', redirect: '/index/welcome'},
+                {path: '/zigarcore/index', redirect: '/zigarcore/index/welcome'},
                 {
-                    path: '/index/welcome',
+                    path: '/zigarcore/index/welcome',
                     name: 'index-welcome',
                     component: Welcome
                 },
                 {
-                    path: '/index/user',
+                    path: '/zigarcore/index/user',
                     name: 'index-user',
                     component: User
                 },
                 {
-                    path: '/index/user-login-log',
+                    path: '/zigarcore/index/user-login-log',
                     name: 'index-userLoginLog',
                     component: UserLoginLog
                 },
                 {
-                    path: '/index/module',
+                    path: '/zigarcore/index/module',
                     name: 'index-module',
                     component: Module
                 },
                 {
-                    path: '/index/file',
+                    path: '/zigarcore/index/file',
                     name: 'index-file',
                     component: File
                 },
             ]
         },
         {
-            path: '/login-main',
+            path: '/zigarcore/login-main',
             name: 'loginMain',
             component: LoginMain,
             children: [
                 {
-                    path: '/login-main/login',
+                    path: '/zigarcore/login-main/login',
                     name: 'login',
                     component: Login,
                     meta: {
@@ -64,7 +63,7 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/login-main/register',
+                    path: '/zigarcore/login-main/register',
                     name: 'register',
                     component: Register,
                     meta: {

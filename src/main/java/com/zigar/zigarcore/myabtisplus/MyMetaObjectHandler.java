@@ -12,14 +12,13 @@ import java.util.Date;
  * @date 2020-05-12
  * @description mybatis-plus自动填充处理器
  */
-@Component
 public class MyMetaObjectHandler implements MetaObjectHandler {
 
     @Override
     public void insertFill(MetaObject metaObject) {
         this.strictInsertFill(metaObject, "createTime", Date.class, DateUtil.date());
         this.strictInsertFill(metaObject, "loginTime", Date.class, DateUtil.date());
-        this.strictInsertFill(metaObject, "isEnabled", Integer.class, 1);
+        this.strictInsertFill(metaObject, "isEnabled", Boolean.class, true);
     }
 
     @Override

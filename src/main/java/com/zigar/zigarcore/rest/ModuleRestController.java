@@ -33,7 +33,7 @@ import java.util.List;
 
 @Api(tags = "模块管理")
 @RestController
-@RequestMapping("/zigar/module")
+@RequestMapping("/api/zigarcore/module")
 public class ModuleRestController {
 
     @Autowired

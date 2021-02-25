@@ -33,4 +33,10 @@ public class MybatisPlusConfiguration {
         return new DefaultIdentifierGenerator();
     }
 
+    @Bean
+    @ConditionalOnMissingBean
+    public MyMetaObjectHandler myMetaObjectHandler() {
+        return new MyMetaObjectHandler();
+    }
+
 }

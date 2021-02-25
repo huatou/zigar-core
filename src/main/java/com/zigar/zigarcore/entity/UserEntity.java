@@ -183,6 +183,7 @@ public class UserEntity implements Serializable, UserDetails {
     private List<PrivilegeEntity> privilegeList;
 
     @Override
+    @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> grantedAuthorityList = new ArrayList<>();
         if (!StringUtils.isEmpty(role)) {

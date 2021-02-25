@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.Random;
+import java.security.SecureRandom;
 
 /**
  * @author yzh
@@ -23,7 +23,7 @@ public class ImageCodeUtils {
         int height = 25;
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics g = image.getGraphics();
-        Random random = new Random();
+        SecureRandom random = new SecureRandom();
         // 设置图片背景色
         g.setColor(getRandColor(200, 500));
         g.setColor(getRandColor(200, 250));
@@ -37,10 +37,10 @@ public class ImageCodeUtils {
             int yl = random.nextInt(12);
             g.drawLine(x, y, x + xl, y + yl);
         }
-        String sRand = "";
+        StringBuilder sRand = new StringBuilder();
         for (int i = 0; i < 4; i++) {
             String rand = String.valueOf(random.nextInt(10));
-            sRand += rand;
+            sRand.append(rand);
             g.setColor(new Color(20 + random.nextInt(110), 20 + random.nextInt(110), 20 + random.nextInt(110)));
             g.drawString(rand, 13 * i + 6, 16);
         }
@@ -53,7 +53,7 @@ public class ImageCodeUtils {
         png_base64 = png_base64.replaceAll("\n", "").replaceAll("\r", "");//删除 \r\n
         png_base64 = "data:image/png;base64," + png_base64;
 
-        return new ImageCode(png_base64, sRand, 60);
+        return new ImageCode(png_base64, sRand.toString(), 60);
     }
 
     /**
@@ -63,8 +63,8 @@ public class ImageCodeUtils {
      * @param bc
      * @return
      */
-    public static final Color getRandColor(int fc, int bc) {
-        Random random = new Random();
+    public static Color getRandColor(int fc, int bc) {
+        SecureRandom random = new SecureRandom();
         if (fc > 255) {
             fc = 255;
         }

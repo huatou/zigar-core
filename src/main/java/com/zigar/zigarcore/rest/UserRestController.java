@@ -43,7 +43,7 @@ import java.util.stream.Collectors;
 
 @Api(tags = "用户管理")
 @RestController
-@RequestMapping("/zigar/user")
+@RequestMapping("/api/zigarcore/user")
 public class UserRestController {
 
     public static final String CURRENT_USER_URL = "current";
