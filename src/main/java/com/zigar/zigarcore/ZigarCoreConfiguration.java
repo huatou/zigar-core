@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
         "com.zigar.zigarcore.properties",
         "com.zigar.zigarcore.rest",
         "com.zigar.zigarcore.resttemplate",
+        "com.zigar.zigarcore.security.mvc",
         "com.zigar.zigarcore.security.password",
         "com.zigar.zigarcore.security.security",
         "com.zigar.zigarcore.service",

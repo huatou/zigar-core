@@ -16,6 +16,7 @@
           <file>file://$MODULE_DIR$/src/main/java/com/zigar/zigarcore/resttemplate/RestTemplateConfiguration.java</file>
           <file>file://$MODULE_DIR$/src/main/java/com/zigar/zigarcore/ui/UiConfiguration.java</file>
           <file>file://$MODULE_DIR$/src/main/java/com/zigar/zigarcore/utils/UtilsConfiguration.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/zigar/zigarcore/security/mvc/WebMvcConfiguration.java</file>
         </fileset>
       </configuration>
     </facet>
