@@ -20,9 +20,9 @@ public class ZigarCoreIndexController {
      * @return
      */
     @PassToken
-    @RequestMapping({ "/zigarcore"})
+    @RequestMapping({"/", "/view/**"})
     public String index() {
-        return "webjars/zigar-core-index";
+        return "index";
     }
 
 }

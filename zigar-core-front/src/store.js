@@ -1,3 +1,33 @@
+// import Vue from 'vue'
+// import Vuex from 'vuex'
+// import zigarStore from "@/zigarcore/store";
+//
+// import jquery from 'jquery';
+//
+// Vue.use(Vuex)
+//
+// const storeOption = jquery.extend(true, zigarStore, {
+//     state: {
+//         model: {}
+//     },
+//     mutations: {
+//         setModel(state, currentUser) {
+//             this.state.model = currentUser;
+//         }
+//     },
+//     getters: {
+//         getModel: state => {
+//             return state.model;
+//         }
+//     },
+//     actions: {}
+// });
+// console.log("storeOption", storeOption);
+// const store = new Vuex.Store(storeOption)
+//
+// export default store;
+
+
 import Vue from 'vue'
 import Vuex from 'vuex'
 

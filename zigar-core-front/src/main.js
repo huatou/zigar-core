@@ -8,25 +8,32 @@ import axios from 'axios'
 import jquery from 'jquery';
 
 import App from './App.vue'
-import store from './store'
-import router from './router'
-import global from './globalConfig'
+import zigarStore from './zigarcore/store'
+import zigarRequest from './zigarcore/request'
+import tokenUtil from './zigarcore/utils/tokenUtil'
+
+import config from './config'
 import request from './request'
-import tokenUtil from './tokenUtil'
-import dialogConfirm from './components/Dialog/dialogConfirmIndex.js'
+
+import dialogConfirm from './zigarcore/components/zigarcore/Dialog/dialogConfirmIndex.js'
+
+import router from './router'
+import store from './store'
 
 
 Vue.use(ElementUI);
-Vue.prototype.global = global
+Vue.prototype.config = config
+Vue.prototype.zigarRequest = zigarRequest
+Vue.prototype.tokenUtil = tokenUtil
+
 Vue.prototype.request = request
 Vue.prototype.$axios = axios
-Vue.prototype.tokenUtil = tokenUtil
 Vue.prototype.jquery = jquery
 Vue.prototype.dialogConfirm = dialogConfirm
 
 new Vue({
-    store,
     router,
+    store,
     render: function (h) {
         return h(App)
     }

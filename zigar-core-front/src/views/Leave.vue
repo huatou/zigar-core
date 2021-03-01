@@ -1,13 +1,11 @@
 <template>
-    <h2>此页面缺少权限</h2>
+<div>I'm leave module</div>
 </template>
 
 <script>
-
-    export default {
-
-    }
-
+export default {
+  name: "Leave"
+}
 </script>
 
 <style scoped>

@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Api(tags = "公众号登录管理")
 @RestController
-@RequestMapping("/api/zigarcore/login")
+@RequestMapping("/api/zigarcore/wechat-login")
 public class WeChatLoginRestController {
 
     private final WeChatPublicService weChatPublicService;
