@@ -23,69 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd48239e-0b7e-4bbf-92fa-5e6b41fca518" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/zigar-core-front/src/views/Leave.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zigar-core-front/src/zigarcore/request.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zigar-core-front/src/zigarcore/router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zigar-core-front/src/zigarcore/store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zigar-core-front/src/zigarcore/utils/requestUtil.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zigar/zigarcore/controller/ZigarCoreIndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zigar/zigarcore/controller/ZigarCoreIndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zigar/zigarcore/properties/SecurityProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zigar/zigarcore/properties/SecurityProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zigar/zigarcore/rest/WeChatLoginRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zigar/zigarcore/rest/WeChatLoginRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/webjars/zigar-core/css/app.a7e536c5.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/webjars/zigar-core/css/chunk-vendors.624545ff.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/webjars/zigar-core/fonts/element-icons.535877f5.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/webjars/zigar-core/fonts/element-icons.732389de.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/webjars/zigar-core/fonts/fontawesome-webfont.674f50d2.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/webjars/zigar-core/fonts/fontawesome-webfont.af7ae505.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/webjars/zigar-core/fonts/fontawesome-webfont.b06871f2.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/webjars/zigar-core/fonts/fontawesome-webfont.fee66e71.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/webjars/zigar-core/img/fontawesome-webfont.912ec66d.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/.env" beforeDir="false" afterPath="$PROJECT_DIR$/zigar-core-front/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/zigar-core-front/.env.development" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/zigar-core-front/.env.production" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/zigar-core-front/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/assets/js/Blob.js" beforeDir="false" afterPath="$PROJECT_DIR$/zigar-core-front/src/zigarcore/assets/js/Blob.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/assets/js/Export2Excel.js" beforeDir="false" afterPath="$PROJECT_DIR$/zigar-core-front/src/zigarcore/assets/js/Export2Excel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/assets/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/zigar-core-front/src/zigarcore/assets/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/assets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/zigar-core-front/src/zigarcore/assets/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/components/BaseTableView.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/components/Dialog/BaseDialog.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/components/Dialog/DialogConfirm.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/components/Dialog/dialogConfirmIndex.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/components/DialogDelete.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/components/Footer.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/components/Header.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/components/Logo.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/components/MainContent.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/components/Menu.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/components/SimpleTable.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/components/Title.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/components/Toast.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/globalConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/zigar-core-front/src/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/zigar-core-front/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/zigar-core-front/src/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/zigar-core-front/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/zigar-core-front/src/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/tokenUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/zigar-core-front/src/zigarcore/utils/tokenUtil.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/views/index/Index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/views/index/Welcome.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/views/index/file/File.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/views/index/forbidden/Forbidden.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/views/index/module/DialogModuleAddOrEdit.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/views/index/module/Module.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/views/index/user/DialogChangePwd.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/views/index/user/DialogUserAddOrEdit.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/views/index/user/DialogUserAuth.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/views/index/user/DialogUserChoose.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/views/index/user/User.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/views/index/userLoginLog/UserLoginLog.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/views/login/Login.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/views/login/LoginMain.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/src/views/login/Register.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zigar-core-front/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/zigar-core-front/vue.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -346,7 +284,8 @@
       <workItem from="1614561052817" duration="3332000" />
       <workItem from="1614564418778" duration="2309000" />
       <workItem from="1614567112607" duration="4409000" />
-      <workItem from="1614582639033" duration="5870000" />
+      <workItem from="1614582639033" duration="6021000" />
+      <workItem from="1614652349700" duration="604000" />
     </task>
     <task id="LOCAL-00001" summary="上传项目">
       <created>1587460565835</created>
@@ -432,7 +371,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614327834198</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="zigar-core不使用webjars方式打包前端文件，改用引用方式。">
+      <created>1614588746882</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1614588746882</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +461,8 @@
     <MESSAGE value="1.0.4版本发布，整合新功能，增加vue项目module" />
     <MESSAGE value="提交完整代码，包括本地idea环境" />
     <MESSAGE value="提交完整项目文件结构，包括本地idea环境" />
-    <option name="LAST_COMMIT_MESSAGE" value="提交完整项目文件结构，包括本地idea环境" />
+    <MESSAGE value="zigar-core不使用webjars方式打包前端文件，改用引用方式。" />
+    <option name="LAST_COMMIT_MESSAGE" value="zigar-core不使用webjars方式打包前端文件，改用引用方式。" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
